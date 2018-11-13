@@ -1,0 +1,77 @@
+import viajes.*
+import gimnasia.*
+import socios.*
+describe""{
+	var cancun =new Playa()
+	var museo=new ExcursionALaCiudad()
+	var amazonas=new CiudadTropical()
+	var amazonas2=new CiudadTropical()
+	var paseo=new Trekking()
+	var museo2=new  ExcursionALaCiudad()
+	var amazonas3=new CiudadTropical()
+fixture{
+	museo.atracciones(4)
+	museo.sirveParaBroncearse()
+	museo.implicaEsfuerzo()
+	amazonas.atracciones(4)
+	amazonas.sirveParaBroncearse()
+	amazonas.implicaEsfuerzo()
+	cancun.sirveParaBroncearse()
+	cancun.implicaEsfuerzo()
+	museo2.atracciones(8)
+	museo2.sirveParaBroncearse()
+	museo2.implicaEsfuerzo()
+	amazonas2.atracciones(8)
+	amazonas2.sirveParaBroncearse()
+	amazonas2.implicaEsfuerzo()
+	amazonas3.atracciones(10)
+	amazonas3.sirveParaBroncearse()
+	amazonas3.implicaEsfuerzo()
+	paseo.cuantosKms(100)
+	paseo.cuantosDiasDeSol(130)
+}
+test "test1"{
+	assert.equals(4,museo.atracciones())
+	assert.notThat(museo.sirveParaBroncearse())
+	assert.notThat(museo.implicaEsfuerzo())
+	assert.equals(2,museo.diasDeActividad())
+}
+test "test2"{
+	assert.equals(4,amazonas.atracciones())
+	assert.that(amazonas.sirveParaBroncearse())
+	assert.notThat(amazonas.implicaEsfuerzo())
+	assert.equals(3,amazonas.diasDeActividad())
+}	
+test "test3"{
+assert.equals(8,museo2.atracciones())
+	assert.notThat(museo2.sirveParaBroncearse())
+	assert.that(museo2.implicaEsfuerzo())
+	assert.equals(4,museo2.diasDeActividad())
+}
+test"test4"{
+	assert.equals(8,amazonas2.atracciones())
+	assert.that(amazonas2.sirveParaBroncearse())
+	assert.that(amazonas2.implicaEsfuerzo())
+	assert.equals(5,amazonas2.diasDeActividad())
+}
+
+test "test5"{
+	assert.that(cancun.sirveParaBroncearse())
+	assert.that(cancun.implicaEsfuerzo())
+	assert.equals(2,cancun.diasDeActividad())
+}
+test"test6"	{
+	assert.equals(10,amazonas3.atracciones())
+	assert.that(amazonas3.sirveParaBroncearse())
+	assert.notThat(amazonas3.implicaEsfuerzo())
+	assert.equals(6,amazonas3.diasDeActividad())
+}
+test "test7"{
+
+	assert.that(paseo.sirveParaBroncearse())
+	assert.notThat(paseo.implicaEsfuerzo())
+	assert.equals(6,paseo.diasDeActividad())
+	assert.equals(paseo.cuantosKms(100))
+	assert.equals(paseo.cuantosDiasDeSol(130))
+}
+}
