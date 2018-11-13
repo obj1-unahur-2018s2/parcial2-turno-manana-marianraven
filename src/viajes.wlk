@@ -40,9 +40,9 @@ class CiudadTropical inherits ExcursionALaCiudad{
 	 
 }
 class Trekking inherits Viajes{
-	var property kms
+	var property kms=0
 	var property diasDeSol=0
-	method cuantosKms(_kms){ return kms+= _kms}
+	method cuantosKms(){ return kms}
 	method cuantosDiasDeSol(){return diasDeSol}
 	
 	override method diasDeActividad(){
@@ -50,11 +50,11 @@ class Trekking inherits Viajes{
 	    return kms/50
 	    }
 	override method implicaEsfuerzo(){
-		      return self.cuantosKms(kms)
+		      return self.cuantosKms()
 	}
 	override method sirveParaBroncearse(){
 		return self.cuantosDiasDeSol()>200 || diasDeSol.between(100,200)
-		 && self.cuantosKms(kms)>120
+		 && self.cuantosKms()>120
 	} 
 	 override method esInteresante(){
     	super()

@@ -27,8 +27,7 @@ fixture{
 	amazonas3.atracciones(10)
 	amazonas3.sirveParaBroncearse()
 	amazonas3.implicaEsfuerzo()
-	paseo.cuantosKms(100)
-	paseo.cuantosDiasDeSol(130)
+	
 }
 test "test1"{
 	assert.equals(4,museo.atracciones())
@@ -68,10 +67,9 @@ test"test6"	{
 }
 test "test7"{
 
-	assert.that(paseo.sirveParaBroncearse())
-	assert.notThat(paseo.implicaEsfuerzo())
+	assert.notThat(paseo.sirveParaBroncearse())
+
 	assert.equals(6,paseo.diasDeActividad())
-	assert.equals(paseo.cuantosKms(100))
-	assert.equals(paseo.cuantosDiasDeSol(130))
+	
 }
 }
